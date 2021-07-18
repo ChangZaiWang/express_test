@@ -27,7 +27,9 @@ router.post('/', (req, res) => {
     if (title && content) {
         try {
             db.promise().query(`INSERT INTO stories(title, content) VALUES(?, ?)`, [title, content])
-            res.status(201).send({msg: 'Story Created' })
+            res.status(201).send({
+                msg: 'Story Created'
+            })
         }
         catch (err) {
             console.log(err)
@@ -41,7 +43,9 @@ router.put('/', (req, res) => {
     if (title) {
         try {
             db.promise().query(`UPDATE stories SET title = ? WHERE id = ?`, [title, id])
-            res.status(201).send({msg: 'Title Updated' })
+            res.status(201).send({
+                msg: 'Title Updated'
+            })
         }
         catch (err) {
             console.log(err)
@@ -50,7 +54,9 @@ router.put('/', (req, res) => {
     else if (content) {
         try {
             db.promise().query(`UPDATE stories SET content = ? WHERE id = ?`, [content, id])
-            res.status(201).send({msg: 'Content Updated' })
+            res.status(201).send({
+                msg: 'Content Updated'
+            })
         }
         catch (err) {
             console.log(err)
@@ -64,7 +70,9 @@ router.delete('/', (req, res) => {
     if (id) {
         try {
             db.promise().query(`DELETE FROM stories WHERE id = ?`, [id])
-            res.status(201).send({msg: 'Story Deleted' })
+            res.status(201).send({
+                msg: 'Story Deleted'
+            })
         }
         catch (err) {
             console.log(err)

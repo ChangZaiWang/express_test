@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 
 const storiesRoute = require('./routes/stories')
+const usersRoute = require('./routes/users')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -13,9 +14,10 @@ app.use((req, res, next) => {
 })
 
 app.use('/stories', storiesRoute)
+app.use('/users', usersRoute)
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Welcom to api.czwang.link')
 })
 
 app.listen(port, () => {
